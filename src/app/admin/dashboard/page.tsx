@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -113,9 +112,9 @@ export default function AdminDashboard() {
     <ProtectedRoute>
       <div className="flex flex-col h-screen bg-gray-100">
         {/* Navbar */}
-        <nav className="bg-red-600 text-white p-4 shadow-lg flex justify-between">
+        <nav className="bg-red-600 text-white p-4 shadow-lg flex justify-between flex-wrap">
           <h2 className="text-2xl font-bold">Admin Dashboard</h2>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 flex-wrap">
             {["All", "pending", "dispatch", "success"].map((status) => (
               <button
                 key={status}
@@ -162,7 +161,7 @@ export default function AdminDashboard() {
                         <select
                           value={order.status || ""}
                           onChange={(e) => handleStatusChange(order._id, e.target.value)}
-                          className="bg-gray-100 p-1 rounded"
+                          className="bg-gray-100 p-1 rounded w-full sm:w-auto"
                         >
                           <option value="pending">Pending</option>
                           <option value="dispatch">Dispatch</option>
@@ -193,7 +192,7 @@ export default function AdminDashboard() {
                               <li key={`${order._id}-${index}`} className="flex items-center gap-2">
                                 {item.productName}
                                 {item.image && (
-                                  <Image src={urlFor(item.image).url()} alt={item.productName} width={100} height={100}  />
+                                  <Image src={urlFor(item.image).url()} alt={item.productName} width={100} height={100} />
                                 )}
                               </li>
                             ))}
